@@ -2,6 +2,10 @@ package learning.spring.discount;
 
 import learning.spring.member.Grade;
 import learning.spring.member.Member;
+import org.springframework.stereotype.Component;
+
+//@Component
+//@learning.spring.annotation.RateDiscountPolicy
 
 public class RateDiscountPolicy implements DiscountPolicy {
 

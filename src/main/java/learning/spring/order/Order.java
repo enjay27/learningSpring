@@ -1,5 +1,7 @@
 package learning.spring.order;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class Order {
     private Long memberId;
     private String itemName;
