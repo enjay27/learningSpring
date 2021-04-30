@@ -8,6 +8,7 @@ import learning.spring.member.MemberServiceImpl;
 import learning.spring.member.MemoryMemberRepository;
 import learning.spring.order.OrderService;
 import learning.spring.order.OrderServiceImpl;
+import learning.spring.proxy.Message;
 import learning.spring.scan.filter.BeanA;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -44,6 +45,11 @@ public class AppConfig {
     public DiscountPolicy fixDiscountPolicy() {
         return new FixDiscountPolicy();
     }
+
+//    @Bean
+//    public Message message() {
+//
+//    }
 
 
 }

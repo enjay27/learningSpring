@@ -10,6 +10,7 @@ sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
+	jcenter()
 }
 
 dependencies {
@@ -23,6 +24,10 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	//lombok 라이브러리 추가 끝
+
+	//mockito
+	implementation 'org.mockito:mockito-core:3.9.0'
+	implementation 'org.mockito:mockito-junit-jupiter:3.9.0'
 }
 
 test {

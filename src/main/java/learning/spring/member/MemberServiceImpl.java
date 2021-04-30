@@ -2,6 +2,8 @@ package learning.spring.member;
 
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class MemberServiceImpl implements MemberService {
 
@@ -17,6 +19,21 @@ public class MemberServiceImpl implements MemberService {
 
     public Member findMember(Long memberId) {
         return memberRepository.findById(memberId);
+    }
+
+    public List<MemberDao> findAll() {
+        return memberRepository.findAll();
+    }
+
+    public void upgradeLevels() {
+        List<MemberDao> allMembers = findAll();
+
+        for (MemberDao member : allMembers) {
+            if (member.getGrade() == Grade.BASIC) {
+                memberRepository.findById(member.getId()).setGrade(Grade.VIP);
+            }
+        }
+
     }
 
 }
