@@ -1,14 +1,10 @@
 package learning.templateEx;
 
 
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.context.event.annotation.BeforeTestMethod;
 
 import java.io.IOException;
-import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
