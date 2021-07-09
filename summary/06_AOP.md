@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 }
 ```
 
-![img.png](img.png)
+![DI적용_1](https://github.com/enjay27/learningSpring/blob/main/src/main/resources/aop/DI%EC%A0%81%EC%9A%A9_1.png?raw=true)
 
 Tx 클래스에서는 경계설정 API를 위한 오브젝트와 핵심 로직이 들어간 Impl 을 주입 받고   
 핵심 로직은 주입 받은 Impl 의 오브젝트에 모든 기능을 위임한다.
@@ -101,13 +101,13 @@ public class UserServiceTx implements UserService {
 }
 ```
 
-![img_1.png](img_1.png)
+![DI적용_2](https://github.com/enjay27/learningSpring/blob/main/src/main/resources/aop/DI%EC%A0%81%EC%9A%A9_2.png?raw=true)
 
 이후 경계설정이 필요한 메서드에는 메서드 호출 전과 후에 경계설정 API를 사용해준다. 
 
 ### 의존관계
 
-![img_2.png](img_2.png)
+![의존관계](https://github.com/enjay27/learningSpring/blob/main/src/main/resources/aop/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84.png?raw=true)
 
 
 ### 개선점
@@ -119,7 +119,7 @@ DI를 이용하여 경계설정 기능이 들어간 오브젝트가 먼저 실�
 
 ### 단위 테스트
 
-![img_3.png](img_3.png)
+![테스트 수많은 의존](https://github.com/enjay27/learningSpring/blob/main/src/main/resources/aop/%ED%85%8C%EC%8A%A4%ED%8A%B8%20%EC%88%98%EB%A7%8E%EC%9D%80%20%EC%9D%98%EC%A1%B4.png?raw=true)
 
 테스트는 가능한 한 작은 단위로 해야 한다. 
 
@@ -168,7 +168,7 @@ public void mockUpgradeLevels() {
 ### 데코레이터 패턴
 > 타깃에 부가적인 기능을 런타임 시 동적으로 부여해주기 위해 프록시를 사용하는 패턴
 
-![img_7.png](img_7.png)
+![데코레이터](https://github.com/enjay27/learningSpring/blob/main/src/main/resources/aop/%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%ED%84%B0.png?raw=true)
 
 컴파일 시점에는 정해져 있지 않다. 구성에 따라 여러 개의 데코레이터를 적용할 수도 있다.
 
@@ -232,7 +232,7 @@ int length = lengthMethod.invoke(name);
 
 ### 다이나믹 프록시
 
-![img_6.png](img_6.png)
+![다이나믹프록시](https://github.com/enjay27/learningSpring/blob/main/src/main/resources/aop/%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9%ED%94%84%EB%A1%9D%EC%8B%9C.png?raw=true)
 
 > 프록시 팩토리에 의해 런타임 시 다이나믹하게 만들어지는 오브젝트   
 > 
@@ -245,7 +245,7 @@ InvocationHandler 구현 오브젝트의 invoke() 메서드로 넘긴다.
 
 클라이언트는 클래스에 필요한 핸들러를 생성하고 난 후 이를 DI하고 프록시 클래스의 인스턴스를 생성하여 사용한다.
 
-![img_4.png](img_4.png)
+![InvocationHandler](https://github.com/enjay27/learningSpring/blob/main/src/main/resources/aop/InvocationHandler.png?raw=true)
 
 ```java
 public class UppercaseHandler implements InvocationHandler {
@@ -357,7 +357,7 @@ public class MessageFactoryBean implements FactoryBean<Message> {
 <property name="text" value="Factory Bean">
 ```
 
-![img_9.png](img_9.png)
+![팩토리빈](https://github.com/enjay27/learningSpring/blob/main/src/main/resources/aop/%ED%8C%A9%ED%86%A0%EB%A6%AC%EB%B9%88.png?raw=true)
 
 #### 장점
 1. 다른 클래스가 해당 팩토리 빈을 사용하여 팩토리 빈의 기능을 그대로 사용할 수 있다.   
@@ -392,7 +392,7 @@ public class MessageFactoryBean implements FactoryBean<Message> {
 기존 InvocationHandler 는 특정 타겟을 위한 프록시에 제한된다.    
 반면 ProxyFactoryBean 은 Advice, Poincut 을 활용하여 유연한 구조를 제공한다.
 
-![img_10.png](img_10.png)
+![프록시팩터리빈을 이용한 방식](https://github.com/enjay27/learningSpring/blob/main/src/main/resources/aop/%ED%94%84%EB%A1%9D%EC%8B%9C%ED%8C%A9%ED%84%B0%EB%A6%AC%EB%B9%88%EC%9D%84%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B0%A9%EC%8B%9D.png?raw=true)
 
 1. 클라이언트의 요청을 받으면 포인트컷으로 부가기능을 부여할 메서드인지 체크한다.
 2. 확인받으면 MethodInterceptor 타입의 어드바이스를 호출한다.
@@ -404,4 +404,5 @@ public class MessageFactoryBean implements FactoryBean<Message> {
 
 - 어드바이저 : 어드바이스와 포인트컷을 묶은 오브젝트
 
-![img_5.png](img_5.png)
+![전부적용한구조](https://github.com/enjay27/learningSpring/blob/main/src/main/resources/aop/%EC%A0%84%EB%B6%80%EC%A0%81%EC%9A%A9%ED%95%9C%EA%B5%AC%EC%A1%B0.png?raw=true)
+
